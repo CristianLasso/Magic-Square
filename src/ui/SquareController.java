@@ -71,8 +71,15 @@ public class SquareController {
     public void generateSquare(ActionEvent event) {
     	grid.getChildren().clear();
     	grid.setGridLinesVisible(true);
+    	
+    	try {
     	int o = Integer.parseInt(txtOrder.getText());
     	s.setOrder(o);
+    	} catch(NumberFormatException e) {
+    		System.out.println("The value is not a number.");
+    	} catch(NegativeArraySizeException e) {
+    		System.out.println("The value is a negative number.");
+    	}
     	
     	if(s.check()) {
     		txtAdvice.setVisible(false);
@@ -85,8 +92,8 @@ public class SquareController {
         	int w = wayValue(way);
         	
         	
-        	int[][] matrix = s.generate(o);
-        	s.fill(f, w, matrix, o);
+        	int[][] matrix = s.generate();
+        	s.fill(f, w);
         	
         	for(int i=0; i < matrix.length; i++) {
         		for(int j=0; j < matrix.length; j++) {

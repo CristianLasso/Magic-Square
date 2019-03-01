@@ -36,13 +36,13 @@ public class Square {
 		return v;
 	}
 	
-	public int[][] generate(int order) {
+	public int[][] generate() {
 		square = new int[order][order];
 		return square;
 	}
 	
 	//Main Method
-	public void fill(int first, int way, int[][] square, int order) {
+	public void fill(int first, int way) {
 		int n = 1;
 		//Up
 		if(first == 1) {
